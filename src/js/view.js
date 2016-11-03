@@ -20,6 +20,7 @@ function renderAddTodoAtTop(input, todoList) {
     return `<div id="app">
         ${input}
         ${todoList}
+        ${isEnabled('filter') ? renderFilter() : ''}
     </div>`;
 }
 
@@ -27,6 +28,7 @@ function renderAddTodoAtBottom(input, todoList) {
     return `<div id="app">
         ${todoList}
         ${input}
+        ${isEnabled('filter') ? renderFilter() : ''}
     </div>`;
 }
 
@@ -44,4 +46,12 @@ function renderTodoItem(todo) {
         <input class="js_toggle_todo" type="checkbox" data-id="${todo.id}"${todo.done ? ' checked' : ''}>
         ${todo.text}
     </li>`;
+}
+
+function renderFilter() {
+    return `<div class="filter">
+              <input type="radio" name="filterType" value="all" checked=true> Mostrar todos<br>
+              <input type="radio" name="filterType" value="opened"> Somente abertos<br>
+              <input type="radio" name="filterType" value="closed"> Somente fechados<br>
+            </div>`;
 }

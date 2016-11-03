@@ -1,6 +1,6 @@
 import {todos} from './state';
 import {listen} from './lib/events';
-import {addTodo, toggleTodoState} from './actions';
+import {addTodo, toggleTodoState, filterItems} from './actions';
 
 function focusOnInput() {
     document.getElementById("todoInput").focus();
@@ -28,4 +28,11 @@ export function registerEventHandlers() {
         const id = Number.parseInt(event.target.getAttribute('data-id'), 10);
         todos.dispatch(toggleTodoState(id));
     });
+
+
+    listen('change', '[name="filterType"]', event => {
+        const type = event.target.value;
+        filterItems(type);
+    });
+
 }
