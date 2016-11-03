@@ -26,9 +26,10 @@ function renderAddTodoAtTop(input, todoList) {
 
 function renderAddTodoAtBottom(input, todoList) {
     return `<div id="app">
+        ${isEnabled('filter') && isEnabled('filterTop')  ? renderFilter() : ''}
         ${todoList}
         ${input}
-        ${isEnabled('filter') ? renderFilter() : ''}
+        ${isEnabled('filter') && !isEnabled('filterTop') ? renderFilter() : ''}
     </div>`;
 }
 
