@@ -2,11 +2,21 @@ import {todos} from './state';
 import {listen} from './lib/events';
 import {addTodo, toggleTodoState} from './actions';
 
+function insertItem(event) {
+  const todoInput = document.getElementById('todoInput');
+  todos.dispatch(addTodo(todoInput.value));
+  event.stopPropagation();
+}
+
 export function registerEventHandlers() {
     listen('click', '#addTodo', event => {
-        const todoInput = document.getElementById('todoInput');
-        todos.dispatch(addTodo(todoInput.value));
-        event.stopPropagation();
+        insertItem(event);
+    });
+
+    listen('keyup', '#todoInput', event => {
+        if(event.keyCode == 13){
+          insertItem(event);
+        }
     });
 
     listen('click', '.js_toggle_todo', event => {
