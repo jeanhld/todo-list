@@ -34,17 +34,21 @@ html, body {
 }
 
 .jumbotron {
+    background-color: transparent;
+    text-align: center;
     margin: 0;
     padding-top: 20px;
 }
 
 .jumbotron p {
-    font-style: italic;
+    font-family: 'Pacifico', cursive;
     float: right;
     color: #004cce;
 }
 
-.jumbotron h1 {
+.title {
+    font-size: 58px;
+    font-family: 'Bungee Outline', cursive;
     font-weight: bold;
     color: #0b1a34;
 }

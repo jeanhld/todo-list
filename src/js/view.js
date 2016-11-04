@@ -89,10 +89,10 @@ function renderFilter() {
 function renderHeader() {
     return `<div class="container">
                 <div class="row">
-                    <div class="col-lg-5 col-centered">
+                    <div class="col-lg-6 col-centered">
                         <div class="jumbotron">
-                            <h1>Simple Todo List</h1>
-                            <p> Inspired by <b> SoftExpert </b> </p>
+                            <div class="title">Todo List</div>
+                            <p> Inspired by SoftExpert </p>
                         </div>
                         <hr/>
                     </div>
