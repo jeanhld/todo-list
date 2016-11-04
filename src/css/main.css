@@ -1,20 +1,55 @@
-html, body, .todo {
+html, body {
     margin: 0;
     padding: 0;
+    background-color: #ecf0f1;
+    font-family: 'Merriweather', sans-serif;
 }
 
 .todo {
+    margin: 0;
+    padding: 0;
     list-style-type: none;
 }
 
-.todo__input, .todo__item {
-    margin: 10px;
+.todo__input {
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 .todo__item--done {
     text-decoration: line-through;
 }
 
-#addTodo {
-    margin-left: 10px;
+.col-centered{
+    float: none;
+    margin: 0 auto;
+}
+
+.radio-inline {
+    margin-left: 20px;
+}
+
+.js_toggle_todo {
+    margin-right: 10px;
+}
+
+.jumbotron {
+    margin: 0;
+    padding-top: 20px;
+}
+
+.jumbotron p {
+    font-style: italic;
+    float: right;
+    color: #004cce;
+}
+
+.jumbotron h1 {
+    font-weight: bold;
+    color: #0b1a34;
+}
+
+.filter {
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
