@@ -1,4 +1,5 @@
 var path = require('path');
+var webpack = require('webpack');
 require('es6-promise').polyfill()
 
 module.exports = {
@@ -26,5 +27,12 @@ module.exports = {
                 include: [path.resolve(__dirname, 'src', 'css')]
             }
         ]
-    }
+    },
+    plugins: [
+        new webpack.DefinePlugin({
+            'features': {
+                'enableFilter': true
+            }
+        })
+    ]
 };
