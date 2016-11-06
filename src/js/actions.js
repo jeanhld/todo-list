@@ -1,4 +1,3 @@
-
 export function toggleTodoState(id) {
     return {
         type: 'TODO_TOGGLE_DONE',

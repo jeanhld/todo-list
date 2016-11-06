@@ -2,11 +2,12 @@ var path = require('path');
 require('es6-promise').polyfill()
 
 module.exports = {
-    entry: ['babel-polyfill', path.normalize(__dirname + '/src/js/main')],
+    entry: ['webpack-dev-server/client', path.normalize(__dirname + '/src/js/main')],
     devtool: 'cheap-module-source-map',
     output: {
         filename: 'bundle.js',
-        path: path.join(__dirname, 'dist')
+        path: path.join(__dirname, 'dist'),
+        publicPath: path.normalize(__dirname + '/src/js/')
     },
     module: {
         loaders: [
