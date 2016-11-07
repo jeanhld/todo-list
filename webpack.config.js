@@ -1,5 +1,6 @@
 var path = require('path');
 var webpack = require('webpack');
+var ExtractTextPlugin = require("extract-text-webpack-plugin");
 require('es6-promise').polyfill()
 
 module.exports = {
@@ -22,8 +23,8 @@ module.exports = {
                 }
             },
             {
-                loader: 'style!css',
                 test: /\.css$/,
+                loader: ExtractTextPlugin.extract("style-loader", "css-loader"),
                 include: [path.resolve(__dirname, 'src', 'css')]
             }
         ]
@@ -38,6 +39,9 @@ module.exports = {
         new webpack.optimize.UglifyJsPlugin({
             include: /\.min\.js$/,
             minimize: true
+        }),
+        new ExtractTextPlugin("style.css", {
+            allChunks: true
         })
     ]
 };
