@@ -6,9 +6,9 @@ module.exports = {
     entry: ['webpack-dev-server/client', path.normalize(__dirname + '/src/js/main')],
     devtool: 'cheap-module-source-map',
     output: {
-        filename: 'bundle.js',
+        filename: 'bundle.min.js',
         path: path.join(__dirname, 'dist'),
-        publicPath: path.normalize(__dirname + '/src/js/')
+        publicPath: path.normalize(__dirname + '/src/')
     },
     module: {
         loaders: [
@@ -32,7 +32,12 @@ module.exports = {
         new webpack.DefinePlugin({
             'features': {
                 'enableFilter': true
-            }
+            },
+            'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development')
+        }),
+        new webpack.optimize.UglifyJsPlugin({
+            include: /\.min\.js$/,
+            minimize: true
         })
     ]
 };
