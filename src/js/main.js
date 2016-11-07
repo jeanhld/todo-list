@@ -1,11 +1,14 @@
 import '../css/main.css';
 
-import {todos} from './state';
-import {render} from './view';
-import {registerEventHandlers} from './events';
+import React from 'react';
+import { render } from 'react-dom';
+import { TodoList } from './containers';
+import reducer from './reducer';
+import { createStore } from 'redux';
+import { Provider } from 'react-redux';
 
-todos.subscribe(newState => render(document.body, newState));
+const store = createStore(reducer);
 
-render(document.body, todos.getState());
-
-registerEventHandlers();
+render(<Provider store={store}>
+    <TodoList />
+  </Provider>, document.getElementById('container'));
