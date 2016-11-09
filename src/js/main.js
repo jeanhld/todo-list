@@ -7,6 +7,9 @@ import { Provider } from 'react-redux';
 
 const store = createStore(reducer);
 
-render(<Provider store={store}>
-    <TodoList />
-  </Provider>, document.getElementById('container'));
+render(
+    <Provider store={store}>
+        <TodoList />
+    </Provider>,
+    document.getElementById('container')
+);

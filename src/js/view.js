@@ -1,8 +1,10 @@
 import React from 'react';
-import {filterItems} from './actions';
+import { filterItems } from './actions';
 
+// Todo item
 export function Todo(props) {
     const { todo } = props;
+
     return (
         <span>
             <input className="js_toggle_todo" type="checkbox" key={todo.get('id')} checked={todo.get('done')}/>
@@ -11,10 +13,12 @@ export function Todo(props) {
     );
 }
 
+// List of Todos
 export function TodoList(props) {
     const { todos, toggleTodoState, addTodo } = props;
     const toggleClick = id => event => toggleTodoState(id);
 
+    // Event handler for todo input
     const onSubmit = (event) => {
         const isClick = event.type == 'click'
         const input = document.getElementById('todoInput');
@@ -52,7 +56,7 @@ export function TodoList(props) {
                                     ))}
                                 </ul>
                             </div>
-                            {features.enableFilter ? <Filter /> : ''}
+                            {features.enabledFilter ? <Filter /> : ''}
                         </div>
                     </div>
                 </div>
@@ -61,6 +65,7 @@ export function TodoList(props) {
     );
 }
 
+// Radio Group to Filter Todos
 export function Filter() {
     const onChange = (event) => {
         const type = event.target.value;
@@ -82,6 +87,7 @@ export function Filter() {
     );
 }
 
+// Main Header
 export function Header() {
     return (
         <div className="container">

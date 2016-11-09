@@ -1,7 +1,6 @@
 var path = require('path');
 var webpack = require('webpack');
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
-require('es6-promise').polyfill()
 
 module.exports = {
     entry: ['webpack-dev-server/client', path.normalize(__dirname + '/src/js/main')],
@@ -32,7 +31,7 @@ module.exports = {
     plugins: [
         new webpack.DefinePlugin({
             'features': {
-                'enableFilter': true
+                'enabledFilter': true
             },
             'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development')
         }),

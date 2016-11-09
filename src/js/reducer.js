@@ -1,5 +1,6 @@
 import { List, Map } from 'immutable';
 
+// Initial state of TodoList
 const init = List([
     Map({
         id: 0,
@@ -35,7 +36,7 @@ export default function(todos=init, action) {
                     return t;
                 }
             });
-            default:
-                return todos;
+        default:
+            return todos;
     }
 }
